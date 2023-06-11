@@ -1,0 +1,14 @@
+.edit-icon {
+  margin: 0 5px 0 15px;
+}
+
+.reminders {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

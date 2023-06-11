@@ -1,0 +1,57 @@
+<mat-toolbar class="custom-toolbar" [@onInit]="onInitState">
+  <img
+    class="keeps-logo"
+    src="https://keeps.com.br/wp-content/webp-express/webp-images/uploads/2022/01/logo-keeps-2022.png.webp"
+    alt="Keeps logo"
+  />
+  <button
+    mat-stroked-button
+    class="today-button"
+    (click)="changeDateForToday()"
+  >
+    Today
+  </button>
+
+  <mat-icon class="arrow arrow-left" (click)="changeMonth(0)"
+    >chevron_left</mat-icon
+  >
+  <mat-icon class="arrow" (click)="changeMonth(1)">chevron_right</mat-icon>
+
+  <span class="title">{{ date | title }}</span>
+  <div class="calendar-button">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <input
+      class="calendar-input"
+      matInput
+      [matDatepicker]="picker"
+      [ngModel]="date"
+      (ngModelChange)="changeDate($event)"
+    />
+  </div>
+
+  <button
+    class="reminder-button"
+    mat-mini-fab
+    color="primary"
+    (click)="openDialog()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-grid-list
+  class="custom-grid-list"
+  cols="7"
+  rowHeight="fit"
+  gutterSize="0"
+  (wheel)="changeDateWithScroll($event)"
+  [@calendar]="calendarState"
+  [@onInit]="onInitState"
+>
+  <mat-grid-tile
+    class="custom-grid-tile"
+    *ngFor="let dt of dates; let i = index"
+  >
+    <app-date [mainDate]="date" [date]="dt" [index]="i"></app-date>
+  </mat-grid-tile>
+</mat-grid-list>

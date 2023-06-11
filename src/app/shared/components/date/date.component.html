@@ -1,0 +1,38 @@
+<div id="container" class="container" [class.other-month]="isOtherMonth(date)">
+  <div class="weekday" *ngIf="index < 7">{{ index | weekday }}</div>
+  <div
+    class="date"
+    [class.margin-top]="index > 6"
+    [class.today]="isToday(date)"
+    [class.other-month]="isOtherMonth(date)"
+  >
+    {{ date.getDate() }}
+  </div>
+
+  <div
+    class="reminder reminder-content-overflow"
+    [class.other-month]="isOtherMonth(date)"
+    [class.display-none]="!overflow"
+    (click)="openInfoDialog(true)"
+  >
+    <span class="reminder-content">
+      <strong>{{ reminders.length }} reminders</strong>
+    </span>
+  </div>
+
+  <div
+    class="reminder"
+    *ngFor="let r of reminders"
+    [matTooltip]="r.description"
+    [class.other-month]="isOtherMonth(date)"
+    [class.display-none]="overflow"
+    (click)="openInfoDialog(false, r)"
+  >
+    <span class="reminder-content">
+      <span class="color-content" [style.background]="r.color"></span>
+      <span class="text-content"
+        >{{ r | reminder }} <strong>{{ r.description }}</strong>
+      </span>
+    </span>
+  </div>
+</div>

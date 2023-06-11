@@ -1,0 +1,44 @@
+.form {
+  width: 300px;
+  height: 35vh;
+}
+
+.description {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.date {
+  width: 53%;
+}
+
+.time {
+  width: 45%;
+  margin-left: 2%;
+  margin-bottom: 20px;
+}
+
+.color {
+  width: 40%;
+}
+
+.save-button {
+  background-color: rgb(128, 102, 167);
+  color: white;
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+}
+
+.title {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+}
+
+.color-option {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}

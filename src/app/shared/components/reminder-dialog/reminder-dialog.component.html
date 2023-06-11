@@ -1,0 +1,81 @@
+<h1 mat-dialog-title class="title">Add reminder</h1>
+<div mat-dialog-content>
+  <form class="form" #dataForm="ngForm">
+    <mat-form-field
+      class="description"
+      hintLabel="Max 30 characters"
+      appearance="outline"
+    >
+      <mat-label>Description</mat-label>
+      <input
+        cdkFocusInitial
+        type="text"
+        #input
+        matInput
+        [(ngModel)]="data.description"
+        maxLength="30"
+        name="description"
+        required
+      />
+      <mat-hint align="end">{{ input.value.length }}/30</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="date" appearance="outline">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="data.date"
+        name="date"
+        [min]="today"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      class="time"
+      appearance="outline"
+      hintLabel="24-hour format"
+    >
+      <mat-label>Time</mat-label>
+      <input
+        type="time"
+        matInput
+        [(ngModel)]="data.time"
+        name="time"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="color" appearance="outline">
+      <mat-label>Color</mat-label>
+      <mat-select
+        matInput
+        [(ngModel)]="data.color"
+        name="color"
+        required
+        [style.background]="data.color"
+      >
+        <mat-option *ngFor="let color of colors" [value]="color">
+          <span class="color-option" [style.background]="color"></span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="data"
+    class="save-button"
+    [disabled]="dataForm.invalid"
+  >
+    Save
+  </button>
+</div>

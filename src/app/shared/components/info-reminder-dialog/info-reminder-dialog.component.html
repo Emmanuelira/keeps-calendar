@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>
+  {{ showTitle() }}
+  <span *ngIf="!data.overflow">
+    <mat-icon class="edit-icon" (click)="editReminder(data.value)"
+      >edit</mat-icon
+    >
+    <mat-icon class="delete-icon" (click)="deleteReminder(data.value)"
+      >delete</mat-icon
+    >
+  </span>
+</h1>
+<div mat-dialog-content>{{ showDate() }}</div>
+<div *ngIf="data.overflow">
+  <div class="reminders" mat-dialog-content *ngFor="let r of data.value">
+    <span>{{ r.description }}</span>
+    <span>
+      <mat-icon class="edit-icon" (click)="editReminder(r)">edit</mat-icon>
+      <mat-icon class="delete-icon" (click)="deleteReminder(r)"
+        >delete</mat-icon
+      >
+    </span>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

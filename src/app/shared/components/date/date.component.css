@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0px 10px 10px;
+}
+
+.weekday {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #70757a;
+}
+
+.date {
+  text-align: center;
+  margin-bottom: 8px;
+  color: rgb(60, 64, 67);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.margin-top {
+  margin-top: 8px;
+}
+
+.other-month {
+  opacity: 0.7;
+}
+
+.today {
+  background-color: #8066a7;
+  color: white;
+  border-radius: 10px;
+  width: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reminder {
+  border-radius: 3px;
+  margin-bottom: 3px;
+  color: black;
+  cursor: pointer;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reminder:hover {
+  background-color: #f2f2f2;
+}
+
+.reminder-content {
+  padding-left: 3px;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  position: relative;
+}
+
+.color-content {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.text-content {
+  margin-left: 15px;
+}
+
+.reminder-content-overflow,
+.reminder-content-overflow:hover {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.reminder-content-overflow:hover {
+  opacity: 0.7;
+}
+
+.display-none {
+  display: none;
+}

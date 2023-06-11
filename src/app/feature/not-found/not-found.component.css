@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Google+Sans&display=swap");
+
+* {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+}
+
+img {
+  scale: 1.2;
+}
+
+div {
+  text-align: center;
+  padding-top: 10vh;
+}
